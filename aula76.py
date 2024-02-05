@@ -1,26 +1,29 @@
-# Manipulando chaves e valores em dicionários
-pessoa = {}
+# Métados úteis dos dicionários em Python
+# len - quantas chaves
+# keys - interável com chaves
+# values - iterável com os valores
+# items - iterável com chaves e valores
+# setdefault - adiciona valor se a chave não existe
+# copy - retorna uma cópia rasa (shallow copy)
+# get - obtém uma chave
+# pop - Apaga um item com a chave especificada (del)
+# popitem - Apagar o último item adicionado
+# update - Atualiza um dicionário com outro
+pessoa = {
+    'nome': 'Leonardo Silva',
+    'sobrenome': 'Miranda',
+    'idade': 900,
+}
 
-##
-##
+pessoa.setdefault('idade', 0)
+print(pessoa['idade'])
+# print(len(pessoa))
+# print(pessoa.keys())
+# print(list(pessoa.values()))
+# print(list(pessoa.items()))
 
-chave = 'nome'
+# for valor in pessoa.values():
+#     print(valor)
 
-pessoa['nome'] = 'Leonardo Soares'
-pessoa['sobrenome'] = 'Silva'
-
-
-print(pessoa[chave])
-
-pessoa[chave] = 'Maria'
-
-del pessoa['sobrenome']
-print(pessoa)
-print(pessoa['nome'])
-
-# print(pessoa.get('sobrenome', None))
-if pessoa.get('sobrenome') is None:
-    print(' NÃO EXISTE')
-else:
-    print(pessoa['sobrenome'])
-# print('ISSO não vai')
+# for chave, valor in pessoa.items():
+#     print(chave, valor)
