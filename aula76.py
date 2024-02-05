@@ -9,21 +9,25 @@
 # pop - Apaga um item com a chave especificada (del)
 # popitem - Apagar o último item adicionado
 # update - Atualiza um dicionário com outro
-pessoa = {
-    'nome': 'Leonardo Silva',
-    'sobrenome': 'Miranda',
-    'idade': 900,
+p1 = {
+    'nome': 'Leonardo',
+    'sobrenome': 'Miranda'
 }
+# print(p1['nome'])
+# print(p1.get('nome', 'Não existe'))
 
-pessoa.setdefault('idade', 0)
-print(pessoa['idade'])
-# print(len(pessoa))
-# print(pessoa.keys())
-# print(list(pessoa.values()))
-# print(list(pessoa.items()))
-
-# for valor in pessoa.values():
-#     print(valor)
-
-# for chave, valor in pessoa.items():
-#     print(chave, valor)
+# nome = p1.pop('nome')
+# print(nome)
+# print(p1)
+# ultima_chave = p1.popitem()
+# print(ultima_chave)
+# print(p1)
+# p1.update({
+#     'nome': 'novo valor',
+#     'idade': 18,
+# })
+# p1.update(nome='novo valor', idade=18)
+# tupla = (('nome', 'novo valor'), ('idade', 30))
+lista = [['nome', 'novo valor'], ['idade', 30]]
+p1.update(lista)
+print(p1)
