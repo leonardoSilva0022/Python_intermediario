@@ -1,18 +1,45 @@
-import nmap
+"""
+Exercícios
+Crie um função que encontra o primeiro duplicado considerando a segundo
+número como a duplicação. Retorne a duplicação considerada.
+Requisitos:
+    a ordem do números duplicado é considerado a partir da segunda
+    ocorrência do número, ou seja, o número duplicado em si.
+    Exemplo:
+    [1, 2, 3, ->3<-, 2, 1] -> 1, 2 e 3 são duplicados (retorne 3)
+        [1, 2, 3, 4, 5, 6] -> Retorne -1 (não tem duplicados)
+        [1, 4, 9, 8, ->9<-, 4, 8] (retorne 9)
+    Se não encontrar duplicados na lista, retorne -1
+"""
+lista_de_listas_de_inteiros = [
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    [9, 1, 8, 9, 9, 7, 2, 1, 6, 8],
+    [1, 3, 2, 2, 8, 6, 5, 9, 6, 7],
+    [3, 8, 2, 8, 6, 7, 7, 3, 1, 9],
+    [4, 8, 8, 8, 5, 1, 10, 3, 1, 7],
+    [1, 3, 7, 2, 2, 1, 5, 1, 9, 9],
+    [10, 2, 2, 1, 3, 5, 10, 5, 10, 1],
+    [1, 6, 1, 5, 1, 1, 1, 4, 7, 3],
+    [1, 3, 7, 1, 10, 5, 9, 2, 5, 7],
+    [4, 7, 6, 5, 2, 9, 2, 1, 2, 1],
+    [5, 3, 1, 8, 5, 7, 1, 8, 8, 7],
+    [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
+]
 
-# Crie um objeto NmapScanner
-nm = nmap.PortScanner()
+def find_first_duplicate(nubmbrs):
+    # Cria um conjunto vazio para armazenar os nùmeros vistos
+    seen_numbrs = set()
 
-# Realize um escaneamento básico de um host
-nm.scan('192.168.1.1', '22-80')
-
-# Itere sobre os resultados do escaneamento
-for host, result in nm.all_hosts().items():
-    print(f'Host: {host}')
-    for protocol, ports in result.items():
-        print(f'Protocol: {protocol}')
-        for port, state in ports.items():
-            print(f'Port: {port}, State: {state}')
-
-# Exiba informações sobre um host específico
-print(f"Host state: {nm['192.168.1.1'].state()}")
+    # Itera sobre os números da lisra
+    for number in number:
+        # Se número já estiver no cojunto, retorna-a a duplicação
+        if number in seen_numbrs:
+            return number
+        # Adiciona o número ao conjunto 
+        seen_numbrs.add(number)
+    
+    # Se nenhum duplicação for encontrada, retorna -1
+    return -1
+    print(find_first_duplicate([1, 2, 3, 3, 2, 1])) # returns 1
+    print(find_first_duplicate([1, 2, 3, 4, 5, 6]))  # returns -1
+    print(find_first_duplicate([1, 4, 9, 8, 9, 4, 8]))  # returns 9
