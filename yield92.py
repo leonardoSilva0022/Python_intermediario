@@ -37,5 +37,4 @@ print()
 for numero in g3:
     print(numero)
 print()
-            
-            
+
