@@ -46,3 +46,5 @@ configuracoes = {
     'arg4': 4,
 }
 mostro_argumentos_nomeados(**configuracoes)
+
+]
