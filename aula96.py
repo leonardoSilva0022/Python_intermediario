@@ -3,11 +3,11 @@
 # inteiro - import nome_modulo
 # Vantagens: você tem o namespace do módulo
 # Desvantagens: nomes grandes
-# import sys
+import sys
 
-# platform = 'A MINHA'
-# print(sys.platform)
-# print(platform)
+platform = 'A MINHA'
+print(sys.platform)
+print(platform)
 
 # partes - from nome_modulo import objeto1, objeto2
 # Vantagens: nomes pequenos
