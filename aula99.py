@@ -12,4 +12,11 @@
 # print(modulo.soma_do_modulo(1, 2))
 # print(variavel)
 # # print(nova_variavel)
-print(__name__)
+# from aula99_package.modulo import soma_do_modulo, fala_oi
+
+# print(__name__)
+# fala_oi()
+
+import aula99_package
+
+print(aula99_package)
