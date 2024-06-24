@@ -17,6 +17,7 @@
 # print(__name__)
 # fala_oi()
 
-import aula99_package
+from aula99_package import soma_do_modulo, fala_oi
 
-print(aula99_package)
+print(soma_do_modulo(2, 3))
+fala_oi()
