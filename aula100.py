@@ -11,9 +11,9 @@ novos_produtos = [
     for p in copy.deepcopy(produtos)
 ]
 
-print(*produtos, sep='\n')
-print()
-print(*novos_produtos, sep='\n')
+# print(*produtos, sep='\n')
+# print()
+# print(*novos_produtos, sep='\n')
 
 # Ordene os produtos por nome decrescente (do maior para menor)
 # Gere produtos_ordenados_por_nome por deep copy (cópia profunda)
@@ -22,9 +22,9 @@ produtos_ordenados_por_nome = sorted(
     key=lambda p: p['nome'],
     reverse=True
 )
-print(*produtos, sep='\n')
-print()
-print(*produtos_ordenados_por_nome, sep='\n')
+# print(*produtos, sep='\n')
+# print()
+# print(*produtos_ordenados_por_nome, sep='\n')
 
 
 # Ordene os produtos por nome decrescente (do maior para menor)
