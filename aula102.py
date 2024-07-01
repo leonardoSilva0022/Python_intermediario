@@ -1,5 +1,5 @@
 # Variáeis lire + nonlocal (locals, globals)
-print(globals())
+# print(globals())
 # def fora(x):
 #     a = x
 
@@ -15,3 +15,4 @@ print(globals())
 
 # print(dentro1())
 # print(dentro2())
+
