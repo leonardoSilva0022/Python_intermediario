@@ -29,3 +29,4 @@ def e_string(param):
 inverte_string_checando_parametro = criar_funcao(inverte_string)
 invertida = inverte_string_checando_parametro('123')
 print(invertida)
+
