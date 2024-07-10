@@ -10,14 +10,14 @@ produtos = [
 ]
 
 
-def funcao_do_reduce(acumulador, produto):
-    print('acumulador', acumulador)
-    print('produto', produto)
-    print()
-    return acumulador + produto['preco']
+# def funcao_do_reduce(acumulador, produto):
+#     print('acumulador', acumulador)
+#     print('produto', produto)
+#     print()
+#     return acumulador + produto['preco']
 
 total = reduce(
-    funcao_do_reduce,
+    lambda ac, p: ac + p['preco'],
     produtos,
     0
 )
