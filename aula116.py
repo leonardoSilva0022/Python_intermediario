@@ -18,3 +18,12 @@
 # Vamos falar mais sobre o módulo json, mas:
 # json.dump = Gera um arquivo json
 # json.load
+caminho_arquivo = '\\Users\\leona\\OneDrive\\Documentos\\Python Intermediário\\'
+caminho_arquivo = 'aula116.txt'
+
+# arquivo = open(caminho_arquivo, 'w')
+# #
+# arquivo.close()
+with open(caminho_arquivo, 'w') as arquivo:
+    print('Olá mundo')
+    print('Arquivo vai ser fechado')
