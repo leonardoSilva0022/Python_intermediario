@@ -27,3 +27,4 @@ lista.desfazer_acao()
 print("Após desfazer:", lista.todo)
 lista.refazer_acao()
 print("Após refazer:", lista.todo)
+
