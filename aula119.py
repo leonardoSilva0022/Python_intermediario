@@ -2,18 +2,18 @@
 # refazer = todo ['fazer café']
 # refazer = todo ['fazer café', 'caminhar']
 
-import os 
+import os
 
 
 def listar(tarefas):
     print()
-    if not tarefa:
+    if not tarefas:
         print('Nenhuma tarefa para listar')
         return
-    
+
     print('Tarefas:')
     for tarefa in tarefas:
-        print(f'\{tarefa}')
+        print(f'\t{tarefa}')
     print()
 
 
@@ -22,7 +22,7 @@ def desfazer(tarefas, tarefas_refazer):
     if not tarefas:
         print('Nenhuma tarefa para desfazer')
         return
-    
+
     tarefa = tarefas.pop()
     print(f'{tarefa=} removida da lista de tarefas.')
     tarefas_refazer.append(tarefa)
@@ -34,9 +34,9 @@ def refazer(tarefas, tarefas_refazer):
     if not tarefas_refazer:
         print('Nenhuma tarefa para refazer')
         return
-    
+
     tarefa = tarefas_refazer.pop()
-    print('{tarefa=} adicionanda na lista de tarefas.')
+    print(f'{tarefa=} adicionada na lista de tarefas.')
     tarefas.append(tarefa)
     print()
 
@@ -47,7 +47,9 @@ def adicionar(tarefa, tarefas):
     if not tarefa:
         print('Você não digitou uma tarefa.')
         return
+    print(f'{tarefa=} adicionada na lista de tarefas.')
     tarefas.append(tarefa)
+    print()
 
 
 tarefas = []
@@ -74,4 +76,4 @@ while True:
     else:
         adicionar(tarefa, tarefas)
         listar(tarefas)
-        continue  
+        continue
