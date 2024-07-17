@@ -1,30 +1,77 @@
-class ListaTarefas:
-    def __init__(self):
-        self.todo = []  
-        self.desfazer = []
-        self.refazer = []  
+# desfazer = [] -> Refazer ['caminhar', 'fazer café']
+# refazer = todo ['fazer café']
+# refazer = todo ['fazer café', 'caminhar']
 
-    def adicionar_tarefa(self, tarefa):
-        self.todo.append(tarefa)
-        self.desfazer.append(self.todo.copy())  
+import os 
 
-    def desfazer_acao(self):
-        if self.desfazer:
-            self.refazer.append(self.todo.copy())  
-            self.todo = self.desfazer.pop()
 
-    def refazer_acao(self):
-        if self.refazer:
-            self.desfazer.append(self.todo.copy())  
+def listar(tarefas):
+    print()
+    if not tarefa:
+        print('Nenhuma tarefa para listar')
+        return
+    
+    print('Tarefas:')
+    for tarefa in tarefas:
+        print(f'\{tarefa}')
+    print()
 
-# Exemplo de uso
-lista = ListaTarefas()
-lista.adicionar_tarefa('fazer café')
-lista.adicionar_tarefa('caminhar')
 
-print("Lista de tarefas:", lista.todo)
-lista.desfazer_acao()
-print("Após desfazer:", lista.todo)
-lista.refazer_acao()
-print("Após refazer:", lista.todo)
+def desfazer(tarefas, tarefas_refazer):
+    print()
+    if not tarefas:
+        print('Nenhuma tarefa para desfazer')
+        return
+    
+    tarefa = tarefas.pop()
+    print(f'{tarefa=} removida da lista de tarefas.')
+    tarefas_refazer.append(tarefa)
+    print()
 
+
+def refazer(tarefas, tarefas_refazer):
+    print()
+    if not tarefas_refazer:
+        print('Nenhuma tarefa para refazer')
+        return
+    
+    tarefa = tarefas_refazer.pop()
+    print('{tarefa=} adicionanda na lista de tarefas.')
+    tarefas.append(tarefa)
+    print()
+
+
+def adicionar(tarefa, tarefas):
+    print()
+    tarefa = tarefa.strip()
+    if not tarefa:
+        print('Você não digitou uma tarefa.')
+        return
+    tarefas.append(tarefa)
+
+
+tarefas = []
+tarefas_refazer = []
+
+while True:
+    print('Comandos: listar, desfazer e refazer')
+    tarefa = input('Digite uma tarefa ou comando: ')
+
+    if tarefa == 'listar':
+        listar(tarefas)
+        continue
+    elif tarefa == 'desfazer':
+        desfazer(tarefas, tarefas_refazer)
+        listar(tarefas)
+        continue
+    elif tarefa == 'refazer':
+        refazer(tarefas, tarefas_refazer)
+        listar(tarefas)
+        continue
+    elif tarefa == 'clear':
+        os.system('clear')
+        continue
+    else:
+        adicionar(tarefa, tarefas)
+        listar(tarefas)
+        continue  
