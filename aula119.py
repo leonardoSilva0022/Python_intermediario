@@ -91,6 +91,4 @@ while True:
         # listar(tarefas)
         # continue
     
-
-hhh
     
