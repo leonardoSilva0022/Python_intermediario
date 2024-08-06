@@ -1,9 +1,15 @@
+# Exercícios - Lista de tarefa com desfazer e refazer 
+# Música para codar =)
+# squeeda - Invisible
+# todo = [] -> lista de tarefas
+# todo = ['fazer café'] -> Adicionar fazer café
+# todo = ['fazer café', 'caminhar'] -> Adicionar
+# caminhar 
 # desfazer = [] -> Refazer ['caminhar', 'fazer café']
 # refazer = todo ['fazer café']
 # refazer = todo ['fazer café', 'caminhar']
-
 import os
-
+import json
 
 def listar(tarefas):
     print()
@@ -23,6 +29,7 @@ def desfazer(tarefas, tarefas_refazer):
         print('Nenhuma tarefa para desfazer')
         return
 
+
     tarefa = tarefas.pop()
     print(f'{tarefa=} removida da lista de tarefas.')
     tarefas_refazer.append(tarefa)
@@ -34,6 +41,7 @@ def refazer(tarefas, tarefas_refazer):
     if not tarefas_refazer:
         print('Nenhuma tarefa para refazer')
         return
+
 
     tarefa = tarefas_refazer.pop()
     print(f'{tarefa=} adicionada na lista de tarefas.')
@@ -54,7 +62,27 @@ def adicionar(tarefa, tarefas):
     listar(tarefas)
 
 
-tarefas = []
+def ler(tarefas, caminho_arquivo):
+    dados = []
+    try:
+        with open(caminho_arquivo, 'r', encoding='utf8') as arquivo:
+            dados = json.load(arquivo)
+    except FileNotFoundError:
+        print('Arquivo não existe')
+        salvar(tarefas, caminho_arquivo)
+    return dados
+        
+
+def salvar(tarefas, caminho_arquivo):
+    dados = tarefas
+    with open(caminho_arquivo, 'w', encoding='utf8') as arquivo:
+        dados = json.dump(tarefas, arquivo, indent=2,
+        ensure_ascii=False)
+    return dados
+
+
+CAMINHO_ARQUIVO = 'aula119.json'
+tarefas = ler([], CAMINHO_ARQUIVO)
 tarefas_refazer = []
 
 while True:
@@ -71,6 +99,7 @@ while True:
     comando = comandos.get(tarefa) if comandos.get(tarefa) is not None else \
         comandos['adicionar']
     comando()
+    salvar(tarefas, CAMINHO_ARQUIVO)
 
     # if tarefa == 'listar':
     #     listar(tarefas)
@@ -87,8 +116,8 @@ while True:
     #     os.system('clear')
     #     continue
     # else:
-        # adicionar(tarefa, tarefas)
-        # listar(tarefas)
-        # continue
+    #     adicionar(tarefa, tarefas)
+    #     listar(tarefas)
+    #     continue
     
     
