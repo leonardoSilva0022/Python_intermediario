@@ -1,16 +1,27 @@
-# Controlando a quantidade de argumentos posicionais e nomeados em funções
-# *args (ilimitado de argumentos posicionais)
-# **kwargs (ilimitado de argumentos nomeados)
-# 🟢 Positional-only Parameters (/) - Tudo antes da barra deve
-# ser ❗️APENAS❗️ posicional.
-# PEP 570 – Python Positional-Only Parameters
-# https://peps.python.org/pep-0570/
-# 🟢 Keyword-Only Arguments (*) - * sozinho ❗️NÃO SUGA❗️ valores.
-# PEP 3102 – Keyword-Only Arguments
-# https://peps.python.org/pep-3102/
-def soma(a, b , /, *, c, ** kwargs):
-    print(kwargs)
-    print(a + b + c)
+# class - Classes são moldes para criar novos objetos
+# As classes geram novos objetos (instâncias) que
+# podem ter seus próprios atributos e métodos.
+# Os objetos gerados pela classe podem usar seus dados
+# internos para realizar várias ações.
+# Por convenção, usamos PascalCase para nomes
+# classes.
+# string = 'Leonardo' # str
+# print(string.upper())
+# print(isinstance(string, str))
+class Pessoa:
+    ...
 
 
-soma(1, 2, c=3, nome='teste')
+p1 = Pessoa()
+p1.nome = 'Leonardo'
+p1.sobrenome = 'Silva'
+
+p2 = Pessoa()
+p2.nome = 'Mary'
+p2.sobrenome = 'Soares'
+
+print(p1.nome)
+print(p1.sobrenome)
+
+print(p2.nome)
+print(p2.sobrenome)
