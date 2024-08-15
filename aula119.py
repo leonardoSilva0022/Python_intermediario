@@ -99,7 +99,7 @@ while True:
     comando = comandos.get(tarefa) if comandos.get(tarefa) is not None else \
         comandos['adicionar']
     comando()
-    salvar(tarefas, CAMINHO_ARQUIVO)
+    salvar(tarefas, CAMINHO_ARQUIVO    )
 
     # if tarefa == 'listar':
     #     listar(tarefas)
@@ -119,5 +119,4 @@ while True:
     #     adicionar(tarefa, tarefas)
     #     listar(tarefas)
     #     continue
-    
-    
+   
