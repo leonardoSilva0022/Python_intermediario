@@ -1,5 +1,9 @@
 # Métodos em instância de classes Python
-#Hard coded - É algo que foi escrito diretamente no código
+# Hard coded - É algo que foi escrito diretamente no código
+# Classe - Molde (geralmente sem dados)
+# Instância da class (objeto) - Tem os dados 
+# Uma classe pode gerar várias instâncias. 
+# Na classe o self é a própria instância.
 class Carro:
     def __init__(self, nome):
         self.nome = nome
@@ -7,11 +11,14 @@ class Carro:
     def acelerar(self):
         print(f'{self.nome} está acelerando...')
 
-
 fusca = Carro('Fusca')
-print(fusca.nome)
 fusca.acelerar()
+Carro.acelerar(fusca)
+# print(fusca.nome)
+# fusca.acelerar()
 
 celta = Carro(nome='Celta')
-print(celta.nome)
 celta.acelerar()
+Carro.acelerar(celta)
+# print(celta.nome)
+# celta.acelerar()
