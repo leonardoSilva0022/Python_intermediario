@@ -120,5 +120,3 @@ while True:
     #     listar(tarefas)
     #     continue
    
-
-   
