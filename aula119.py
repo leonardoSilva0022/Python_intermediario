@@ -119,6 +119,3 @@ while True:
     #     adicionar(tarefa, tarefas)
     #     listar(tarefas)
     #     continue
-   
-
-   
