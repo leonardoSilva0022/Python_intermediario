@@ -7,9 +7,9 @@ def executa(funcao, *args):
 
 
 # def cria_multiplicador(multiplicador):
-#     def multtiplica(numero):
+#     def multiplica(numero):
 #         return numero * multiplicador
-#     return multtiplica
+#     return multiplica
 
 
 # duplica = cria_multiplicador(2)
