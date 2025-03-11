@@ -1,6 +1,6 @@
 # Atributos de classe
 class Pessoa:
-    ano_atual = 2022
+    ano_atual = 2025
 
     def __init__(self, nome, idade):
         self.nome = nome
@@ -10,8 +10,8 @@ class Pessoa:
         return Pessoa.ano_atual - self.idade
 
 
-p1 = Pessoa('João', 35)
-p2 = Pessoa('Helena', 12)
+p1 = Pessoa('Leonardo', 29)
+p2 = Pessoa('Mary', 12)
 
 print(Pessoa.ano_atual)
 # Pessoa.ano_atual = 1
