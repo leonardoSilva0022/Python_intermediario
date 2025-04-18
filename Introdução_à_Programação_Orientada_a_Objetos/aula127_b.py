@@ -1,110 +1,85 @@
-import random 
+# Criado abaixo uma função para validar um CPF digitado.
+NOVO_CPF = list(input("Digite um CPF para ser validado >>>"))
+NOVO_CPF_STRING = " ".join(NOVO_CPF)
 
-######## VALIDADOR DE CPF #######
-def validador():
+def validacao_cpf():
+  if len(NOVO_CPF) == 11:
+      primeiro1 = int(NOVO_CPF[0]) * 10
+      primeiro2 = int(NOVO_CPF[1]) * 9
+      primeiro3 = int(NOVO_CPF[2]) * 8
+      primeiro4 = int(NOVO_CPF[3]) * 7
+      primeiro5 = int(NOVO_CPF[4]) * 6
+      primeiro6 = int(NOVO_CPF[5]) * 5
+      primeiro7 = int(NOVO_CPF[6]) * 4
+      primeiro8 = int(NOVO_CPF[7]) * 3
+      primeiro9 = int(NOVO_CPF[8]) * 2
 
-    ''' Função responsável por receber os numeros e verificar se é apenas numeros'''
-    cpf = input("Cpf: ").replace(".","").replace("-","")
-    print("="*30)
-    while cpf.isdigit() == False or len(cpf) != 11:
-        print("Cpf Invalido!")
+      seg_primeiro1 = int(NOVO_CPF[0]) * 11
+      seg_primeiro2 = int(NOVO_CPF[1]) * 10
+      seg_primeiro3 = int(NOVO_CPF[2]) * 9
+      seg_primeiro4 = int(NOVO_CPF[3]) * 8
+      seg_primeiro5 = int(NOVO_CPF[4]) * 7
+      seg_primeiro6 = int(NOVO_CPF[5]) * 6
+      seg_primeiro7 = int(NOVO_CPF[6]) * 5
+      seg_primeiro8 = int(NOVO_CPF[7]) * 4
+      seg_primeiro9 = int(NOVO_CPF[8]) * 3
+      seg_primeiro10 = int(NOVO_CPF[9]) * 2
 
-    
-    cpf_falso(cpf)
+      soma_validacao = (primeiro1 + primeiro2 + primeiro3 + primeiro4 + primeiro5 + primeiro6 + primeiro7 + primeiro8 + primeiro9)
+      divisao_soma = (soma_validacao // 11)
+      resto = (soma_validacao - (11 * divisao_soma))
 
-    if calculo_digitos(cpf,9) == False:
-        print("Cpf Invalido")
-    
-    if calculo_digitos(cpf,9) == True:
-        print("Cpf Invalido")
+      soma_validacao_2 = (seg_primeiro1 + seg_primeiro2 + seg_primeiro3 + seg_primeiro4 + seg_primeiro5 + seg_primeiro6 + seg_primeiro7 + seg_primeiro8 + seg_primeiro9 + seg_primeiro10)
+      divisao_soma_2 = (soma_validacao_2 // 11)
+      resto_2 = (soma_validacao_2 - (11 * divisao_soma_2))
+      
+      antepenultimo_digito_cpf = int(NOVO_CPF[8])
+      penultimo_digito_cpf = int(NOVO_CPF[9])
+      ultimo_digito_cpf = int(NOVO_CPF[10])
 
-    else:
-        print("Cpf Invalido")
+      val_1 = False
+      val_2 = False
+      val_3 = False
+      val_4 = False
 
-def calculo_digitos(n, digito):
-    ''' Função responsavel por calcular os digitos 10 e 1 do cpf- o Paramentro
-    N = CPF || digito = digito a calcular'''
-    contador = 0
-    z = (digito+1)
-    for x in n[0:digito]:
-        x = int(x)
-        mult = z * x
-        contador+=mult
-        z-=1
-    resto = (contador%11)
-    if resto < 2:
-        resto=0
-    else:
-        resto = 11 - resto
-    if resto != int(n[digito]):
-        return False
-    else:
-        return True
+      if(resto <=1) and (penultimo_digito_cpf == 0):
+          val_1 = True
+      if( resto >=2 and resto < 10) and (11 - resto == penultimo_digito_cpf):
+          val_2 = True
+      if( resto_2 <=1 ) and (ultimo_digito_cpf == 0):
+          val_3 = True
+      if ( resto_2 >=2 and resto_2 < 10 ) and (11 - resto_2 == ultimo_digito_cpf):
+          val_4 = True
+      else: ()
 
-def cpf_falso(n):
-    if n == "11111111111" or n == "22222222222" or n == "33333333333":
-        print("Cpf invalido")
+      if (val_1 == True or val_2 == True) and (val_3 == True or val_4 == True):
+          print(f"O CPF número: {NOVO_CPF_STRING} é válido !")
+      else:
+          print(f"O CPF número: {NOVO_CPF_STRING} é inválido, tente novamente.")
 
-    if n == "44444444444" or n == "55555555555" or n == "66666666666":
-        print("Cpf invalido")
+      #Abaixo Validação dos estado de origem do CPF
+      if antepenultimo_digito_cpf == 1:
+          print("Seu CPF é originário do estado do Distrito Federal, Goiás, Mato Grosso do Sul ou Tocantins")
+      elif antepenultimo_digito_cpf == 2:
+          print("Seu CPF é originário do estado do Pará, Amazonas, Acre, Amapá, Rondônia ou Roraima")
+      elif antepenultimo_digito_cpf == 3:
+          print("Seu CPF é originário do estado do Ceará, Maranhão ou Piauí")
+      elif antepenultimo_digito_cpf == 4:
+          print("Seu CPF é originário do estado de Pernambuco, Rio Grande do Norte, Paraíba ou Alagoas")
+      elif antepenultimo_digito_cpf == 5:
+          print("Seu CPF é originário do estado da Bahia; e Sergipe")
+      elif antepenultimo_digito_cpf == 6:
+          print("Seu CPF é originário de Minas Gerais")
+      elif antepenultimo_digito_cpf == 7:
+          print("Seu CPF é originário do estado do Rio de Janeiro ou Espírito Santo")
+      elif antepenultimo_digito_cpf == 8:
+          print("Seu CPF é originário do estado de São Paulo")
+      elif antepenultimo_digito_cpf == 9:
+          print("Seu CPF é originário do estado do Paraná ou Santa Catarina")
+      else:
+          print("Seu CPF é de origem do estado do Rio Grande do Sul")
 
-    if n == "77777777777" or n == "88888888888" or n == "99999999999":
-        print("Cpf invalido")
+  else: 
+      print(f"O CPF número: {NOVO_CPF_STRING} é inválido, tente novamente.")
 
-############ GERADOR DE CPF ############
-def gera_cpf():
-    '''Função gera 9 digitos aleatorios entra 0 e 9'''
-    n=""
-    for x in range(9):
-        n+= "".join(str(random.randint(0,9)))
-    gera_digitos(n,9)
-    n+="".join(str(num))
-    gera_digitos(n,10)
-    n+="".join(str(num))
-    print("="*30)
-    print('{0}{1}{2}.{3}{4}{5}.{6}{7}{8}-{9}{10}'.format(*n))
-
-
-def gera_digitos(n,dig):
-    '''Função responsavel por gerar os digitos 10 e 11 validos para o cpf
-    O Paramentro n = os 9 digitos do gera _cpf ||| dig = digito a calcular '''
-    global num
-    contador = 0
-    num=0
-    dig = dig +1
-    for x in n[0:dig]:
-        x = int(x)
-        mult = dig * x
-        contador+=mult
-        dig-=1
-        resto = (contador%11)
-        if resto < 2:
-            num=0
-        else:
-            num = 11 - resto
-
-
-def main():
-    '''função principal'''
-    while True:
-        print("="*30)
-        print("Validador | Gerador de cpf".center(30))
-        print("="*30)
-        print("[G] - Gerar Cpf Válido")
-        print("[V] - Validar Cpf")
-        print("[S] - Para Sair")
-
-        op = input("Opção: ").lower()
-        if op == "g":
-            gera_cpf()
-
-        elif op == "v":
-            validador()
-
-        elif op == "s":
-            exit()
-        else:
-            print("Opção invalida")
-            op = input("Opção: ").lower()
-
-main()
+validacao_cpf()
