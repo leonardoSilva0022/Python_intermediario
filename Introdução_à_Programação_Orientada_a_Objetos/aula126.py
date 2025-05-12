@@ -22,4 +22,4 @@ p1 = Pessoa(**dados)
 # print(p1.outra)
 # print(p1.nome)
 print(vars(p1))
-print(p1.nome)
+print(p1.nome).
