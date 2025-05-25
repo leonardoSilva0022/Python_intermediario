@@ -44,4 +44,3 @@ c2.filmar()
 c2.fotografar()
 c2.parar_filmar()
 c2.fotografar()
-
