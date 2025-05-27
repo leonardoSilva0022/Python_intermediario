@@ -29,3 +29,4 @@ def fazer_dump():
 if __name__ == '__main__':
     print( 'ELE É o __main__')
     fazer_dump()
+    
